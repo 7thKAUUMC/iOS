@@ -26,7 +26,7 @@ class LoginView: UIView {
         return e
     }()
     
-    private let emailTextField: UITextField = {
+    let emailTextField: UITextField = {
         let e = UITextField()
         e.placeholder = "예) kream@kream.co.kr"
         e.borderStyle = .roundedRect
@@ -43,7 +43,7 @@ class LoginView: UIView {
         return p
     }()
     
-    private let passwordTextField: UITextField = {
+    let passwordTextField: UITextField = {
         let p = UITextField()
         p.placeholder = "비밀번호를 입력해주세요"
         p.borderStyle = .roundedRect

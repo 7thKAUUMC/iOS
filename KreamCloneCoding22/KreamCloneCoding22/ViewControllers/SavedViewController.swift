@@ -71,4 +71,8 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return 102.7
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "전체 \(productList.count)개"
+    }
+    
 }

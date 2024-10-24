@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
 
     let loginView = LoginView()
+    let userDefaultModel = UserDefaultModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,9 @@ class LoginViewController: UIViewController {
     }
 
     @objc func loginButtonTapped() {
-        print("called")
+        userDefaultModel.setUserId(loginView.emailTextField.text ?? "")
+        userDefaultModel.setUserPw(loginView.passwordTextField.text ?? "")
+        
         let nextVC = MainViewController()
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)

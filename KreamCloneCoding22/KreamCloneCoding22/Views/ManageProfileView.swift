@@ -10,6 +10,7 @@ import SnapKit
 
 class ManageProfileView: UIView {
 
+    
     private let userImage: UIImageView = {
         let u = UIImageView()
         u.image = UIImage(named: "UserImage")
@@ -37,8 +38,10 @@ class ManageProfileView: UIView {
     
     private let emailTextField: UITextField = {
         let e = UITextField()
+        e.text = UserDefaults.standard.string(forKey: "userID")
         e.placeholder = "새로운 이메일을 입력해주세요!"
         e.borderStyle = .roundedRect
+        e.isUserInteractionEnabled = false
         return e
     }()
     
@@ -53,8 +56,10 @@ class ManageProfileView: UIView {
     
     private let passwordTextField: UITextField = {
         let p = UITextField()
+        p.text = UserDefaults.standard.string(forKey: "userPW")
         p.placeholder = "새로운 비밀번호를 입력해주세요!"
         p.borderStyle = .roundedRect
+        p.isUserInteractionEnabled = false
         return p
     }()
     
@@ -152,13 +157,27 @@ class ManageProfileView: UIView {
     }
     
     @objc func buttonTapped(sender: UIButton) {
-        if sender == emailButton {
-            sender.setTitle("확인", for: .normal)
-            emailTextField.text = ""
+        if sender.titleLabel?.text == "변경" {
+            if sender == emailButton  {
+                sender.setTitle("확인", for: .normal)
+                emailTextField.isUserInteractionEnabled = true
+                
+            } else {
+                sender.setTitle("확인", for: .normal)
+                passwordTextField.isUserInteractionEnabled = true
+                
+            }
         } else {
-            sender.setTitle("확인", for: .normal)
-            passwordTextField.text = ""
+            if sender == emailButton  {
+                UserDefaultModel().setUserId(emailTextField.text ?? "")
+                sender.setTitle("변경", for: .normal)
+            } else {
+                UserDefaultModel().setUserPw(passwordTextField.text ?? "")
+                sender.setTitle("변경", for: .normal)
+            }
+            
         }
+        
         
     }
     
