@@ -74,7 +74,6 @@ class HomeView: UIView {
     }
     
     
-    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true
@@ -173,7 +172,7 @@ class HomeView: UIView {
             make.leading.equalToSuperview().offset(16)
             make.width.equalTo(442)
             make.height.equalTo(237)
-            make.bottom.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-10) // ****
         }
     }
     

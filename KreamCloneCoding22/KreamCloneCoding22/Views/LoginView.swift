@@ -61,14 +61,9 @@ class LoginView: UIView {
         return l
     }()
     
-    private let kakaoButton: UIButton = {
+    let kakaoButton: UIButton = {
         let k = UIButton()
-        k.setTitle("카카오로 로그인", for: .normal)
-        k.setTitleColor(.black, for: .normal)
-        k.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
-        k.layer.cornerRadius = 8
-        k.layer.borderWidth = 1
-        k.layer.borderColor = UIColor.lightGray.cgColor
+        k.setImage(UIImage(named: "kakaoLoginImage"), for: .normal)
         return k
     }()
     

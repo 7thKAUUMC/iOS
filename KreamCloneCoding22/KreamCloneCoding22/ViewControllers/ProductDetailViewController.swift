@@ -8,6 +8,7 @@
 import UIKit
 
 class ProductDetailViewController: UIViewController, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         ProductDifferentColorModel.dummy().count
     }
