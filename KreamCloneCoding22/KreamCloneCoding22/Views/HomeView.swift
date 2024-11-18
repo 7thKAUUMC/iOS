@@ -12,11 +12,13 @@ import Then
 
 class HomeView: UIView {
     
-    private let searchBar: UITextField = {
+    let searchBar: UITextField = {
         let s = UITextField()
         s.placeholder = "\t브랜드, 상품, 프로필, 태그 등"
-        s.backgroundColor = .lightGray
+        s.backgroundColor = UIColor(hex: "#F5F5F5")
         s.layer.cornerRadius = 5
+        s.isUserInteractionEnabled = true
+        s.clipsToBounds = false
         return s
     }()
     
@@ -59,7 +61,7 @@ class HomeView: UIView {
     private let adImage: UIImageView = {
         let a = UIImageView()
         a.image = UIImage(named: "image_ad_none")
-        a.contentMode = .scaleAspectFill
+        a.contentMode = .scaleAspectFit
         return a
     }()
     
@@ -111,7 +113,7 @@ class HomeView: UIView {
         
         addSubview(searchBar)
         searchBar.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(55)
+            make.top.equalToSuperview()// .offset(55)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-55)
             make.height.equalTo(40)
@@ -135,13 +137,14 @@ class HomeView: UIView {
         addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(segementControl.snp.bottom)
-            make.bottom.leading.trailing.equalTo(self.safeAreaLayoutGuide)
+            make.bottom.leading.trailing.equalToSuperview()
         }
         
         scrollView.addSubview(adImage)
         adImage.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.leading.trailing.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.centerX.equalToSuperview()
             make.height.equalTo(336)
         }
         

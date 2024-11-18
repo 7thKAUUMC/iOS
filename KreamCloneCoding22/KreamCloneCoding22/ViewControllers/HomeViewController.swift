@@ -57,19 +57,26 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
         setupUI()
         setupDelegate()
+        
+        homeView.searchBar.addTarget(self, action: #selector(searchBarTapped), for: .editingDidBegin)
         // Do any additional setup after loading the view.
     }
     
     func setupUI() {
         view.addSubview(homeView)
         homeView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
     func setupDelegate() {
         homeView.itemCollecionView.dataSource = self
         homeView.droppedCollectionView.dataSource = self
+    }
+    
+    @objc func searchBarTapped() {
+        let searchVC = SearchViewController()
+        navigationController?.pushViewController(searchVC, animated: true)
     }
 
 }

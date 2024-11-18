@@ -9,6 +9,8 @@ import UIKit
 
 class CustomSizeButton: UIButton {
 
+    
+    
     let sizeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -42,6 +44,7 @@ class CustomSizeButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        self.layer.cornerRadius = 10
     }
     
     required init? (coder: NSCoder) {
