@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController, UICollectionViewDataSource {
     
@@ -35,15 +36,28 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         } else {
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: JustDroppedCell.identifier, for: indexPath
-                ) as? JustDroppedCell else {
+            ) as? JustDroppedCell else {
                 return UICollectionViewCell()
             }
             
+            //            let list = JustDroppedModel.dummy()
+            //            cell.productPicture.image = list[indexPath.row].image
+            //            cell.brandName.text = list[indexPath.row].brandName
+            //            cell.productName.text = list[indexPath.row].productName
+            //            cell.productPrice.text = list[indexPath.row].price
+            
             let list = JustDroppedModel.dummy()
-            cell.productPicture.image = list[indexPath.row].image
-            cell.brandName.text = list[indexPath.row].brandName
-            cell.productName.text = list[indexPath.row].productName
-            cell.productPrice.text = list[indexPath.row].price
+            let model = list[indexPath.row]
+            
+            // Configure the cell
+            cell.brandName.text = model.brandName
+            cell.productName.text = model.productName
+            cell.productPrice.text = model.price
+            
+            // Kingfisher를 사용하여 이미지 로드
+            if let imageUrl = URL(string: model.image) {
+                cell.productPicture.kf.setImage(with: imageUrl)
+            }
             
             return cell
         }
@@ -78,5 +92,5 @@ class HomeViewController: UIViewController, UICollectionViewDataSource {
         let searchVC = SearchViewController()
         navigationController?.pushViewController(searchVC, animated: true)
     }
-
+    
 }

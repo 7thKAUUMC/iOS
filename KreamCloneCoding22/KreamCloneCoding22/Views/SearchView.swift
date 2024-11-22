@@ -41,6 +41,7 @@ class SearchView: UIView {
     
     let recommendedCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
         //$0.itemSize = .init(width: 100, height: 32)
+        $0.estimatedItemSize = .init(width: 50, height: 32)
         $0.minimumLineSpacing = 12
         $0.minimumInteritemSpacing = 8
     }).then {
@@ -75,8 +76,9 @@ class SearchView: UIView {
         recommendedCollectionView.snp.makeConstraints { make in
             make.top.equalTo(recommendedText.snp.bottom).offset(11)
             make.leading.equalTo(recommendedText.snp.leading)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(100)
+            // make.centerX.equalToSuperview()
+            make.width.equalTo(329)
+            make.height.equalTo(76)
         }
     }
     

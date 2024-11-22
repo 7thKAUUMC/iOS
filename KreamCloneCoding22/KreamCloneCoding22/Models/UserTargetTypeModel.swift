@@ -22,7 +22,7 @@ extension UserTargetTypeModel: TargetType {
     
     var path: String {
         switch self {
-        case .getData(let param):
+        case .getData:
             return "/products/search"
         }
     }

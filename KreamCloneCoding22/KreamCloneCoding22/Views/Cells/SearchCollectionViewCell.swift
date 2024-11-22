@@ -20,6 +20,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         b.layer.borderWidth = 1
         b.layer.borderColor = UIColor(hex: "#ECECEC")?.cgColor
         b.invalidateIntrinsicContentSize()
+        b.contentEdgeInsets = .init(top: 8, left: 11, bottom: 8, right: 11)
         return b
     }()
     

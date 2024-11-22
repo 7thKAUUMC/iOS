@@ -30,7 +30,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource {
         
         setupUI()
         setupDelegate()
-        searchView.searchBar.addTarget(self, action: #selector(textFieldDidChange(_: )), for: .editingChanged)
+        searchView.searchBar.addTarget(self, action: #selector(textFieldDidChange(_: )), for: .editingDidEndOnExit)
     }
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
