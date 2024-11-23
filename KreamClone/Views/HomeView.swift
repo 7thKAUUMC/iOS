@@ -60,9 +60,11 @@ class HomeView: UIView {
         $0.backgroundColor = UIColor.black
     }
     
-    private let searchLabel = UITextField().then {
+    let searchTextField = UIButton().then {
         $0.backgroundColor = UIColor(hex: "#F5F5F5")
-        $0.placeholder = "  브랜드, 상품, 프로필, 태그 등"
+        $0.setTitle("  브랜드, 상품, 프로필, 태그 등", for: .normal)
+        $0.setTitleColor(UIColor.lightGray, for: .normal)
+        $0.contentHorizontalAlignment = .left
         $0.layer.cornerRadius = 12
     }
     
@@ -137,7 +139,7 @@ class HomeView: UIView {
     
     private func setupViews() {
        
-        [searchLabel, alertButton, segmentedControl, underLine].forEach { addSubview($0) }
+        [searchTextField, alertButton, segmentedControl, underLine].forEach { addSubview($0) }
         
         addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -155,8 +157,9 @@ class HomeView: UIView {
         ].forEach { contentView.addSubview($0) }
         
         contentView.snp.makeConstraints { make in
-            make.edges.equalTo(scrollView)
-            make.width.equalTo(scrollView)
+            make.edges.equalTo(scrollView.contentLayoutGuide)
+            make.width.equalTo(scrollView.frameLayoutGuide)
+            make.height.equalTo(1200)
         }
         
         scrollView.snp.makeConstraints { make in
@@ -164,7 +167,7 @@ class HomeView: UIView {
             make.leading.trailing.bottom.equalToSuperview()
         }
         
-        searchLabel.snp.makeConstraints { make in
+        searchTextField.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(6)
             make.leading.equalToSuperview().offset(16)
             make.height.equalTo(40)
@@ -174,11 +177,11 @@ class HomeView: UIView {
         alertButton.snp.makeConstraints { make in
             make.height.width.equalTo(24)
             make.trailing.equalToSuperview().offset(-16)
-            make.centerY.equalTo(searchLabel)
+            make.centerY.equalTo(searchTextField)
         }
         
         segmentedControl.snp.makeConstraints { make in
-            make.top.equalTo(searchLabel.snp.bottom).offset(16)
+            make.top.equalTo(searchTextField.snp.bottom).offset(16)
             make.horizontalEdges.equalToSuperview().inset(24)
             make.height.equalTo(27)
             make.centerX.equalToSuperview()
@@ -250,7 +253,7 @@ class HomeView: UIView {
         storyItem.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
             make.top.equalToSuperview().offset(73)
-            make.bottom.equalTo(contentView)
+            make.bottom.equalToSuperview().offset(-20)
         }
         
     }
