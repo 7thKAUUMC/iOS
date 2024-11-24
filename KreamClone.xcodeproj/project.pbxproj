@@ -18,6 +18,7 @@
 		DE916A592CEB00740041DFD4 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = DE916A582CEB00740041DFD4 /* Moya */; };
 		DE916A5B2CEB00740041DFD4 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DE916A5A2CEB00740041DFD4 /* ReactiveMoya */; };
 		DE916A5D2CEB00740041DFD4 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DE916A5C2CEB00740041DFD4 /* RxMoya */; };
+		DEC34E2F2CF2E4F200B52591 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DEC34E2E2CF2E4F200B52591 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEC34E2F2CF2E4F200B52591 /* Kingfisher in Frameworks */,
 				DE2546772CE7279500C60671 /* Alamofire in Frameworks */,
 				DE2546812CE7329D00C60671 /* KakaoSDK in Frameworks */,
 				DE916A592CEB00740041DFD4 /* Moya in Frameworks */,
@@ -114,6 +116,7 @@
 				DE916A582CEB00740041DFD4 /* Moya */,
 				DE916A5A2CEB00740041DFD4 /* ReactiveMoya */,
 				DE916A5C2CEB00740041DFD4 /* RxMoya */,
+				DEC34E2E2CF2E4F200B52591 /* Kingfisher */,
 			);
 			productName = KreamClone;
 			productReference = DEC6A9592CA3A3F1003C5D8B /* KreamClone.app */;
@@ -149,6 +152,7 @@
 				DE2546752CE7279500C60671 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				DE25467F2CE7329D00C60671 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				DE916A552CEB00740041DFD4 /* XCRemoteSwiftPackageReference "Moya" */,
+				DEC34E2D2CF2E4F200B52591 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DEC6A95A2CA3A3F1003C5D8B /* Products */;
@@ -418,6 +422,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		DEC34E2D2CF2E4F200B52591 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -475,6 +487,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DE916A552CEB00740041DFD4 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		DEC34E2E2CF2E4F200B52591 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEC34E2D2CF2E4F200B52591 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
